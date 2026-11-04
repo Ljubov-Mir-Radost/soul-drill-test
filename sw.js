@@ -1,0 +1,7 @@
+const VERSION='soul-drill-test-static-v1.2.4';
+const FILES=['./','./index.html','./styles.css','./app.js','./device-controls.js','./excerpt.js','./schedule.js','./planning-ui.js','./core.js','./db.js','./data/content.v1.json','./manifest.webmanifest','./icons/favicon.png','./icons/logo.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
+const urls=FILES.map(p=>new URL(p,self.registration.scope).href);
+self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(VERSION);try {await cache.addAll(urls);}catch(e){await caches.delete(VERSION);throw e;}})()));
+// No skipWaiting: a release becomes active only after all old controlled tabs close.
+self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('soul-drill-test-static-')&&key!==VERSION)await caches.delete(key);await self.clients.claim();})()));
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;const u=new URL(event.request.url);if(!urls.includes(u.href)&&event.request.mode!=='navigate')return;event.respondWith((async()=>{const cache=await caches.open(VERSION);if(event.request.mode==='navigate'){if(!u.pathname.startsWith(new URL(self.registration.scope).pathname))return fetch(event.request);return (await cache.match(new URL('./index.html',self.registration.scope).href))||fetch(event.request);}return (await cache.match(event.request))||fetch(event.request);})());});
