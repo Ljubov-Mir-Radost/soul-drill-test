@@ -1,4 +1,4 @@
-const VERSION='soul-drill-test-static-v1.2.4';
+const VERSION='soul-drill-test-static-v1.2.5';
 const FILES=['./','./index.html','./styles.css','./app.js','./device-controls.js','./excerpt.js','./schedule.js','./planning-ui.js','./core.js','./db.js','./data/content.v1.json','./manifest.webmanifest','./icons/favicon.png','./icons/logo.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
 const urls=FILES.map(p=>new URL(p,self.registration.scope).href);
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(VERSION);try {await cache.addAll(urls);}catch(e){await caches.delete(VERSION);throw e;}})()));
