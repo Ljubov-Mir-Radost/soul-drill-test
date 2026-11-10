@@ -1,0 +1,64 @@
+{
+  "format": "soul-drill-editor",
+  "formatVersion": 1,
+  "state": "ready",
+  "rulesVersion": "1.0.0",
+  "rulesDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+  "catalogSchemaVersion": 2,
+  "baseContentVersion": "demo-1",
+  "source": {
+    "id": "source-83881934-71ba-4f8a-862e-404666def14a",
+    "historicalDate": "2000-01-01",
+    "rereadDate": null,
+    "reference": "SYNTHETIC EXAMPLE — NOT A MURLI",
+    "url": null,
+    "authentic": false,
+    "approval": "unreviewed",
+    "fullText": null
+  },
+  "excerpt": {
+    "id": "excerpt-ab1c4b55-3fcc-4b2f-b7aa-81c785918654",
+    "sourceId": "source-83881934-71ba-4f8a-862e-404666def14a",
+    "revision": 1,
+    "approval": {
+      "mk": "unreviewed",
+      "bhs": "unreviewed"
+    },
+    "text": {
+      "mk": "ПРОБЕН извадок — не е Мурли.",
+      "bhs": "PROBNI odlomak — nije Murli."
+    }
+  },
+  "task": {
+    "id": "task-c3cb0788-d0d2-43e1-a4d4-25583883e632",
+    "sourceId": "source-83881934-71ba-4f8a-862e-404666def14a",
+    "excerptId": "excerpt-ab1c4b55-3fcc-4b2f-b7aa-81c785918654",
+    "title": {
+      "mk": "ПРОБЕН наслов",
+      "bhs": "PROBNI naslov"
+    },
+    "instruction": {
+      "mk": "ПРОБНО упатство: запиши една мисла.",
+      "bhs": "PROBNA uputa: zapiši jednu misao."
+    },
+    "durationType": "unspecified",
+    "days": null,
+    "recommendation": {
+      "mk": "",
+      "bhs": ""
+    },
+    "terms": []
+  },
+  "dictionaryAdditions": [],
+  "editorial": {
+    "englishSource": {
+      "reference": "",
+      "text": "SYNTHETIC EXAMPLE — not a Murli."
+    },
+    "bhsSource": {
+      "reference": "",
+      "text": "PROBNI odlomak — nije Murli."
+    },
+    "note": ""
+  }
+}

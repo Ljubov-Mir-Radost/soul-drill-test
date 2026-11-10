@@ -1,0 +1,12 @@
+import {readFile,writeFile,readdir} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'..'),pub=existsSync(path.join(root,'public'))?path.join(root,'public'):root;
+const {fingerprint}=await import(new URL('../'+(pub===root?'':'public/')+'content-validator.js',import.meta.url));
+const dir=path.join(pub,'review-kit/1.0.0');
+const files=[];
+for(const name of (await readdir(dir)).filter(n=>n.endsWith('.md')||n==='EXAMPLE.json').sort())files.push({path:name,hash:await fingerprint(await readFile(path.join(dir,name),'utf8'))});
+const manifest={version:'1.0.0',files,digest:await fingerprint(files)};
+if(process.argv.includes('--write'))await writeFile(path.join(dir,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+else if(JSON.stringify(JSON.parse(await readFile(path.join(dir,'manifest.json'),'utf8')))!==JSON.stringify(manifest))throw Error('Review kit differs from its immutable manifest');
+export {manifest,pub,root};

@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "BHS-PROMPT.md",
+      "hash": "7fe1525a2e68684cbf72def18f6d5dc87275660d350adacf36eaa949bfa8a82f"
+    },
+    {
+      "path": "COMMON.md",
+      "hash": "8c6c2462d6fd7f48fc8ab54d2e7c7d69eb67a97d6675b289ab1a8947f15babe0"
+    },
+    {
+      "path": "EXAMPLE.json",
+      "hash": "ccc38e2fd1ea52a62a73f342829c297afc828c531539d08ea731e31a5e6afdf6"
+    },
+    {
+      "path": "MK-PROMPT.md",
+      "hash": "6f426bfcb2c2b06a0794340c90690f819d83c2398cda03e7457606653766d25c"
+    },
+    {
+      "path": "README.md",
+      "hash": "8dc40cad416a5d7415ba361791a1d0c67ac7d83073a4336c9f1b30d1c29e3c87"
+    },
+    {
+      "path": "REPORT-TEMPLATE.md",
+      "hash": "48d028b1e2641f2cad87a95fdb2fcb9464a5302b9208d6a72a6d5e59a479091a"
+    },
+    {
+      "path": "TECHNICAL-PROMPT.md",
+      "hash": "2d9a9f5effdfb23563c77d1ca3a04b90fb0059fe66bc7b51c1c5d239878cff4e"
+    }
+  ],
+  "digest": "b2ff1a39a2daa4166d3229e2dce0c25cb7ea201deaa1e3689d2488e347a95495"
+}

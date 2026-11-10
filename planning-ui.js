@@ -14,19 +14,23 @@ export function periodForm(api,task,previous=[]){
  const start=el('input',{type:'date',required:true,value:today(),min:'1900-01-01',max:'9990-12-31'});
  const finish=el('input',{type:'date',required:true,value:endDate(today(),task.days||7),min:today()});
  const continuous=el('input',{type:'checkbox',checked:task.days===null});
+ const unspecified=task.durationType==='unspecified';
+ const personalDuration=el('select',{required:true,'aria-label':t('Избери мое времетраење','Odaberi moje trajanje')},el('option',{value:''},t('Избери мое времетраење','Odaberi moje trajanje')),el('option',{value:'fixed'},t('Личен определен период','Osobno određeno razdoblje')),el('option',{value:'continuous'},t('Лично континуирано','Osobno kontinuirano')));
+ if(unspecified)personalDuration.addEventListener('change',()=>{continuous.checked=personalDuration.value==='continuous';finish.disabled=continuous.checked;});
  finish.disabled=continuous.checked;continuous.addEventListener('change',()=>finish.disabled=continuous.checked);
  start.addEventListener('change',()=>{finish.min=start.value;if(start.value)finish.value=endDate(start.value,task.days||7);});
  const times=timeFields(api),message=el('p',{role:'alert',class:'warning'});
  const form=el('form',{class:'card form period-form',onsubmit:async e=>{
   e.preventDefault();message.textContent='';
   try{const days=continuous.checked?null:daysBetween(start.value,finish.value)+1;if(days!==null&&(days<1||days>3650))throw Error(t('Периодот мора да биде од 1 до 3650 дена.','Razdoblje mora biti od 1 do 3650 dana.'));
+   if(unspecified&&!personalDuration.value)throw Error(t('Изворот нема наведено траење. Избери свој период.','Izvor nema navedeno trajanje. Odaberi svoje razdoblje.'));
    const run={key:uid('run'),type:'run',taskId:taskId(task),start:start.value,days,status:'active',reflection:''};
    if(previous.length)run.continuedFrom=previous[0].key;
    const plan={key:planKey(run.key,start.value),type:'plan',runId:run.key,effectiveFrom:start.value,times:times.times()};
    await saveMany([run,plan]);if(!failed())render();
   }catch(e){message.textContent=e.message;}
  }},el('h2',{},previous.length?t('Нов личен период','Novo osobno razdoblje'):t('Мој план','Moj plan')),
- field(t('Мој почетен датум','Moj početni datum'),start),field(t('Краен датум (вклучително)','Završni datum (uključivo)'),finish),field(t('Континуирана, без крај','Kontinuirana, bez kraja'),continuous),times.node,
+ unspecified?field(t('Изворното траење не е наведено','Izvorno trajanje nije navedeno'),personalDuration):null,field(t('Мој почетен датум','Moj početni datum'),start),field(t('Краен датум (вклучително)','Završni datum (uključivo)'),finish),unspecified?null:field(t('Континуирана, без крај','Kontinuirana, bez kraja'),continuous),times.node,
  el('p',{class:'muted'},t('Часовите се личен план, без автоматски аларми. Старите периоди и изворната задача остануваат зачувани.','Vremena su osobni plan, bez automatskih alarma. Stara razdoblja i izvorni zadatak ostaju spremljeni.')),message,
  el('button',{type:'submit',class:'primary'},previous.length?t('Започни повторно','Započni ponovo'):t('Започни практика','Započni praksu')));
  return form;
