@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 2,
+  "contentVersion": "demo-1",
+  "demonstrationOnly": true,
+  "sources": [
+    {
+      "id": "demo-source-001",
+      "historicalDate": "2000-01-01",
+      "rereadDate": "2026-10-18",
+      "authentic": false,
+      "approval": "demo-only",
+      "fullText": null,
+      "reference": "",
+      "url": null
+    }
+  ],
+  "excerpts": [
+    {
+      "id": "demo-excerpt-001",
+      "sourceId": "demo-source-001",
+      "revision": 1,
+      "approval": {
+        "mk": "demo-only",
+        "bhs": "demo-only"
+      },
+      "text": {
+        "mk": "ДЕМОНСТРАЦИЈА — ова е пробен текст за проверка на подвлекувањето. Не е извадок од Мурли.",
+        "bhs": "DEMONSTRACIJA — ovo je probni tekst za provjeru označavanja. Nije odlomak iz Murlija."
+      }
+    },
+    {
+      "id": "demo-excerpt-002",
+      "sourceId": "demo-source-001",
+      "revision": 1,
+      "approval": {
+        "mk": "demo-only",
+        "bhs": "demo-only"
+      },
+      "text": {
+        "mk": "ДЕМОНСТРАЦИЈА — место за иден одобрен извадок. Овој текст служи само за тестирање.",
+        "bhs": "DEMONSTRACIJA — mjesto za budući odobreni odlomak. Ovaj tekst služi samo za testiranje."
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "demo-task-001",
+      "sourceId": "demo-source-001",
+      "excerptId": "demo-excerpt-001",
+      "title": {
+        "mk": "Момент за тишина",
+        "bhs": "Trenutak za tišinu"
+      },
+      "instruction": {
+        "mk": "Пробна вежба: одвои една минута за тивка пауза. Потоа запиши краток осврт.",
+        "bhs": "Probna vježba: odvoji jednu minutu za tihu pauzu. Zatim zapiši kratak osvrt."
+      },
+      "days": 7,
+      "terms": [
+        "soul"
+      ],
+      "durationType": "fixed",
+      "recommendation": {
+        "mk": "",
+        "bhs": ""
+      }
+    },
+    {
+      "id": "demo-task-002",
+      "sourceId": "demo-source-001",
+      "excerptId": "demo-excerpt-002",
+      "title": {
+        "mk": "Дневен осврт",
+        "bhs": "Dnevni osvrt"
+      },
+      "instruction": {
+        "mk": "Пробна вежба: забележи една мисла од денот. Нема краен рок.",
+        "bhs": "Probna vježba: zabilježi jednu misao iz dana. Nema krajnjeg roka."
+      },
+      "days": null,
+      "terms": [
+        "sanskara"
+      ],
+      "durationType": "continuous",
+      "recommendation": {
+        "mk": "",
+        "bhs": ""
+      }
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "soul",
+      "label": {
+        "mk": "Душа",
+        "bhs": "Duša"
+      },
+      "definition": {
+        "mk": "Пробна речничка одредница: „јас сум душа“. Дефиницијата чека одобрување.",
+        "bhs": "Probna rječnička natuknica: „ja sam duša“. Definicija čeka odobrenje."
+      },
+      "approval": "demo-only"
+    },
+    {
+      "id": "sanskara",
+      "label": {
+        "mk": "Санскара",
+        "bhs": "Sanskara"
+      },
+      "definition": {
+        "mk": "Пробна одредница за поимот санскара; конечната дефиниција чека одобрување.",
+        "bhs": "Probna natuknica za pojam sanskara; konačna definicija čeka odobrenje."
+      },
+      "approval": "demo-only"
+    }
+  ]
+}

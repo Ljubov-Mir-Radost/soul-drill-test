@@ -1,0 +1,14 @@
+{
+  "name": "soul-drill-test",
+  "private": true,
+  "type": "module",
+  "version": "1.3.0",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
+  "scripts": {
+    "test": "node --test tests/content.test.mjs",
+    "check": "node tools/content-check.mjs",
+    "build": "node tools/build-pages.mjs"
+  }
+}
